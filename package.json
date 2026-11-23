@@ -1,0 +1,44 @@
+{
+  "name": "evora-api",
+  "version": "1.0.0",
+  "description": "Evora backend API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/server.js",
+    "start:testing": "cross-env NODE_ENV=testing node src/server.js",
+    "start:staging": "cross-env NODE_ENV=staging node src/server.js",
+    "start:production": "cross-env NODE_ENV=production node src/server.js",
+    "db:create": "node scripts/create-db.js",
+    "db:migrate": "node scripts/migrate.js",
+    "db:seed": "node scripts/seed-admin.js",
+    "db:setup": "npm run db:create && npm run db:migrate && npm run db:seed",
+    "db:migrate:testing": "cross-env NODE_ENV=testing node scripts/migrate.js",
+    "db:setup:testing": "cross-env NODE_ENV=testing npm run db:setup",
+    "db:migrate:staging": "cross-env NODE_ENV=staging node scripts/migrate.js",
+    "db:setup:staging": "cross-env NODE_ENV=staging npm run db:setup",
+    "db:migrate:production": "cross-env NODE_ENV=production node scripts/migrate.js",
+    "db:setup:production": "cross-env NODE_ENV=production npm run db:setup"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.12.1",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "nodemon": "^3.1.14"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
